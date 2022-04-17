@@ -39,7 +39,7 @@ footer {
 }
 
 .order_button {
-    margin: 8px 8px 8px 0;
+    margin: 8px 8px 8px 0 !important;
 }
 
 .product_img * {
