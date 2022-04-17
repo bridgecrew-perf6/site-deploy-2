@@ -9,7 +9,7 @@
 }
 
 .chip {
-    margin: 0 4px;
+    margin: 0 4px !important;
 }
 
 body {
@@ -31,6 +31,15 @@ footer {
     border-radius: 10px;
 
     box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_button {
+    margin: 8px 8px 8px 0;
 }
 
 .product_img * {
