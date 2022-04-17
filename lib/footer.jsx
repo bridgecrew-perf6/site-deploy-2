@@ -10,7 +10,7 @@ export const Footer = () => <footer>
             <PhoneIcon className={'footer-icon'} />
             <div className="list_text">
                 <span>Телефон:</span>
-                <span><a href="tel://+79170324874">+79170324874</a></span>
+                <span><a href="tel:+79170324874">+79170324874</a></span>
             </div>
         </li>
         <li className="footer-icon-li">
@@ -20,7 +20,7 @@ export const Footer = () => <footer>
                     Электронная почта:
                 </span>
                 <span>
-                    <a href="mailto://rozhkov.2006@gmail.com">rozhkov.2006@gmail.com</a>
+                    <a href="mailto:rozhkov.2006@gmail.com">rozhkov.2006@gmail.com</a>
                 </span>
             </div>
         </li>
