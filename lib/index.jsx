@@ -2,7 +2,7 @@ import Image from "next/image";
 
 
 function localLoader({src}) {
-    return `https://storage.yandexcloud.net/control-site/${src}`;
+    return `https://site-deploy.pages.dev/${src}`;
 }
 
 export const Index = () => <div className="products">
