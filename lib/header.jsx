@@ -2,10 +2,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PlaceIcon from '@mui/icons-material/Place';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {Overlay} from "./overlay";
+import React, {useState} from 'react'
 
-export const Header = () => <header>
+export function Header() {
+    const [showOverlay, setShowOverlay] = useState(false)
+
+    return <>
+        <HeaderPage onAddressClicked={() => {
+            setShowOverlay(true)
+        }}/>
+        <Overlay show={showOverlay} onCloseClicked={() => setShowOverlay(false)}></Overlay>
+    </>
+}
+
+const HeaderPage = ({onAddressClicked}) => <header>
     <div className="title clickable">Shop</div>
-    <div className="address clickable" id="address">
+    <div className="address clickable" id="address" onClick={onAddressClicked}>
         <PlaceIcon/>
 
         <span className="your_address">

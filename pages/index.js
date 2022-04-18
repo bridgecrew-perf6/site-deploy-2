@@ -2,13 +2,16 @@ import {Info} from '../lib/info'
 import Head from 'next/head'
 import {Header} from '../lib/header'
 import {Footer} from '../lib/footer'
-import {Overlay} from '../lib/overlay'
 import {Index} from '../lib/index'
-import React from 'react'
+import React, {useState} from 'react'
+
+import mapboxgl from '!mapbox-gl';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoidmxhZGQxMSIsImEiOiJja3o0NXE2eTUwNTNzMnFtdHluZWRndGNsIn0.9ZXfdy5x_ii-c7Ur-PYbxQ';
 
 export default function Home() {
-    const [filteredProducts, setFilteredProducts] = React.useState(Info.products)
-    const [clicked, setClicked] = React.useState("")
+    const [filteredProducts, setFilteredProducts] = useState(Info.products)
+    const [clicked, setClicked] = useState("")
 
     const onChipClicked = (category) => {
         if (category === clicked) {
@@ -31,7 +34,6 @@ export default function Home() {
             </Head>
 
             <Header></Header>
-            <Overlay></Overlay>
 
             <Index onChipClicked={(item) => onChipClicked(item)} filteredProducts={filteredProducts}
                    clicked={clicked}></Index>

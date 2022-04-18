@@ -1,4 +1,5 @@
 .address_overlay {
+    z-index: 2;
     background: linear-gradient(#fff, transparent);
 
     flex: 1;
@@ -29,9 +30,10 @@
 }
 
 .center-marker {
+    position: absolute;
     margin-bottom: 72px;
     z-index: 999;
-    font-size: 72px;
+    font-size: 72px !important;
 }
 
 .address_view {
