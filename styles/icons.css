@@ -2,12 +2,12 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(http://localhost:3000/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: url(https://site-deploy.pages.dev/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
     src: local('Material Icons'),
     local('MaterialIcons-Regular'),
-    url(http://localhost:3000/fonts/MaterialIcons-Regular.woff2) format('woff2'),
-    url(http://localhost:3000/fonts/MaterialIcons-Regular.woff) format('woff'),
-    url(http://localhost:3000/fonts/MaterialIcons-Regular.ttf) format('truetype');
+    url(https://site-deploy.pages.dev/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://site-deploy.pages.dev/fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(https://site-deploy.pages.dev/fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {
