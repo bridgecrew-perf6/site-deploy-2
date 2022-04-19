@@ -1,19 +1,12 @@
-.root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.chips {
-    padding: 16px 16px 4px;
-}
-
-.chip {
-    margin: 0 4px !important;
-}
-
 body {
     background: #f6f6f6;
+
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -31,20 +24,6 @@ footer {
     border-radius: 10px;
 
     box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .2);
-}
-
-.sub {
-    display: flex;
-    justify-content: space-between;
-}
-
-.order_button {
-    margin: 8px 8px 8px 0 !important;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
 }
 
 .product_img * {

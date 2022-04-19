@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop | Главная</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Example page of shop">
+</head>
+<body>
+
+<div class="address_overlay" id="address_overlay" hidden>
+    <div class="address_view">
+        Ваш адрес:
+        <span id="address_text"></span>
+
+        <span class="material-icons close" id="close">
+            close
+        </span>
+    </div>
+
+    <div class="map_container">
+        <div class="material-icons center-marker" id="place">
+            place
+        </div>
+        <div id="map"></div>
+    </div>
+</div>
+
+<header>
+    <div class="title clickable">Shop</div>
+    <div class="address clickable" id="address">
+        <span class="material-icons" style="font-size: 28px">
+            place
+        </span>
+
+        <span class="your_address">
+            Ваш адрес
+        </span>
+    </div>
+    <nav class="right_panel">
+        <span class="item last-item clickable">
+            <span class="material-icons big">
+                search
+            </span>
+            Поиск
+        </span>
+
+        <span class="item clickable">
+            <span class="material-icons big">
+                account_circle
+            </span>
+            Войти
+        </span>
+
+        <span class="item first-item clickable">
+            <span class="material-icons big">
+                shopping_cart
+            </span>
+            Корзина
+        </span>
+    </nav>
+</header>
+
+<div class="chips" id="chips">
+    <div class="chip">
+    <span class="material-icons chip-icon">
+        check
+    </span>
+        Бутылки, <span style="font-weight: bold; padding-left: 4px">0.5л</span>
+    </div>
+    <div class="chip">
+    <span class="material-icons chip-icon">
+        check
+    </span>
+        Бутылки, <span style="font-weight: bold; padding-left: 4px">5л</span>
+    </div>
+    <div class="chip">
+        <span class="material-icons chip-icon">
+            check
+        </span>
+        Тара для воды
+    </div>
+    <div class="chip">
+        <span class="material-icons chip-icon">
+        check
+    </span>
+        Кулеры
+    </div>
+    <div class="chip">
+        Кофе
+    </div>
+    <div class="chip">
+        <span class="material-icons chip-icon">
+        check
+    </span>
+        Лимонады
+    </div>
+
+</div>
+
+<div class="products" id="products">
+
+    <div class="product">
+        <div class="product_img"><img src="pizza.webp" alt="" width="300" height="150" loading="lazy"></div>
+        <div class="product_title">Вода негазированная</div>
+        <div class="product_description">1 литр</div>
+        <div class="product_price">350.0 ₽</div>
+    </div>
+
+    <div class="product">
+        <div class="product_img"><img src="pizza.webp" alt="" width="300" height="150" loading="lazy"></div>
+        <div class="product_title">Вода негазированная</div>
+        <div class="product_description">1 литр</div>
+        <div class="product_price">350.0 ₽</div>
+    </div>
+
+</div>
+<footer>
+    <ul class="list">
+        <li class="info_text">Контакты:</li>
+
+        <li class="footer-icon-li">
+            <span class="material-icons footer-icon">
+                phone
+            </span>
+            <div class="list_text">
+                <span>Телефон:</span>
+                <span><a href="tel:+7123456789">+79170324874</a></span>
+            </div>
+        </li>
+        <li class="footer-icon-li">
+            <span class="material-icons footer-icon">
+                email
+            </span>
+            <div class="list_text">
+                <span>
+                    Электронная почта:
+                </span>
+                <span>
+                    <a href="mailto:rozhkov.2006@gmail.com">rozhkov.2006@gmail.com</a>
+                </span>
+            </div>
+        </li>
+        <li class="footer-icon-li">
+            <span class="material-icons footer-icon">
+                place
+            </span>
+            <div class="list_text">
+                <span>
+                    Адрес:
+                </span>
+                <span>
+                    <a href="https://yandex.ru/maps/51/samara/house/novo_vokzalnaya_ulitsa_27/YUkYdANiTkcHQFtpfX5wdnVjbQ==/?ll=50.242720%2C53.217910&z=16.92">Самара, ул. Ново-Вокзальная, дом 25</a>
+                </span>
+            </div>
+        </li>
+    </ul>
+    <ul class="list info_block">
+        <li class="info_text">Информация:</li>
+        <li><a href="about">О магазине</a></li>
+        <li><a href="delivery">Доставка</a></li>
+        <li><a href="warranty">Гарантия</a></li>
+    </ul>
+</footer>
+</body>
+</html>

@@ -30,16 +30,11 @@ footer {
     flex: 1;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .footer-icon-li {
     display: flex;
     align-items: center;
-}
-
-.footer-icon {
-    font-size: 1em;
 }
 
 .list * {

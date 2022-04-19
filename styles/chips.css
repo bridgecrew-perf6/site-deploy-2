@@ -1,0 +1,33 @@
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-left: 18px;
+    padding-top: 8px;
+}
+
+.chip {
+    padding: 8px 12px;
+    display: inline-flex;
+
+    background: #F6F6F6;
+    color: #393939;
+
+    border: 1px #BFBDBD solid;
+    border-radius: 16px;
+
+    margin: 4px;
+
+    cursor: pointer;
+}
+
+.chip:hover {
+    background: #D8D8D8;
+}
+
+.chip-icon {
+    display: none;
+    font-size: 18px;
+    padding-right: 4px;
+    font-weight: bold;
+}
