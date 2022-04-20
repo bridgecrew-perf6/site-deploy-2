@@ -4,12 +4,12 @@ import './header'
 import './fonts/MaterialIcons-Regular.woff2'
 import './fonts/MaterialIcons-Regular.woff'
 import './fonts/MaterialIcons-Regular.eot'
-import './styles/icons.css'
+import './styles/icons.less'
 
 // CSS
-import './styles/chips.css'
-import './styles/footer.css'
-import './styles/index.css'
+import './styles/chips.less'
+import './styles/footer.less'
+import './styles/index.less'
 
 require.context('./images/');
 import './manifest.json'
@@ -31,6 +31,7 @@ for (let i = 0; i < chips.length; i++) {
         currentChip = chipClass;
         filter(Info.categories[i], products)
     }, function () {
+        currentChip = null;
         products.innerHTML = '';
         Info.products.forEach(product => {
             render(product, products)

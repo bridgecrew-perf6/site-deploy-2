@@ -2,30 +2,33 @@ const Info = {
     title: "Shop",
     description: "Water delivery",
     products: [
+        
         {
-            id: '8035e6af2c054749a2d41c1161b93b63',
-            title: "Вода негазированная",
-            category: "Вода, 0.5л",
-            description: "0.5 литра",
-            image_uri: "pizza.jpg",
-            price: 35000,
+            id: "e2747024-c4ce-d54a-9f26-e5865d502a47",
+            title: "Пицца с протушто",
+            category: "Итальянские пиццы",
+            description: "330 ккал, 15 см",
+            image_uri: "pizza.webp",
+            price: 35000.0,
         },
+        
         {
-            id: '8035e6af2c054749a2d41c1161b93b64',
-            title: "Вода негазированная",
-            category: "Вода, 5л",
-            description: "5 литров",
-            image_uri: "pizza.jpg",
-            price: 35000,
-        }
+            id: "c77d7e80-05c6-2e43-80dc-04a58302169b",
+            title: "Пепперони",
+            category: "Пиццы с пепперони",
+            description: "400 ккал, 15 см",
+            image_uri: "pizza1.webp",
+            price: 40000.0,
+        },
+        
     ],
-    categories: ["Вода, 0.5л", "Вода, 5л"],
-    admin: {
-        email: "rozhkov.2006@gmail.com",
-        phone: "+7123456789",
-        address: "Самара, ул. Ново-Вокзальная, дом 28",
-        addressLink: "https://yandex.ru/maps/51/samara/house/novo_vokzalnaya_ulitsa_28/YUkYdANiTUEGQFtpfX5wd3lmYg==/?ll=50.242442%2C53.216556&z=18"
-    }
+    categories: [
+        
+        "Итальянские пиццы",
+        
+        "Пиццы с пепперони",
+        
+    ]
 };
 
 export default Info;

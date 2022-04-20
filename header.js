@@ -2,7 +2,7 @@ import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
 import MapboxWorker from "mapbox-gl/dist/mapbox-gl-csp-worker";
 
 import 'mapbox-gl/dist/mapbox-gl.css'
-import './styles/header.css'
+import './styles/header.less'
 
 let map;
 

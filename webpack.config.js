@@ -2,19 +2,23 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-    "mode": "none",
+    "mode": "production",
     "entry": "./index.js",
     "output": {
         "path": __dirname + '/dist',
-        "filename": "bundle.js"
+        "filename": "bundle.js",
+        clean: true
     },
     devServer: {
         port: 3000
     },
     optimization: {
-        usedExports: true
+        minimizer: [new CssMinimizerPlugin()],
+        usedExports: true,
+        minimize: true
     },
     module: {
         rules: [
@@ -36,6 +40,12 @@ module.exports = {
             {
                 test: /\bmapbox-gl-csp-worker.js\b/i,
                 use: {loader: 'worker-loader'}
+            },
+            {
+                "test": /\.less$/,
+                "use": [
+                    MiniCssExtractPlugin.loader, "css-loader", "less-loader"
+                ]
             },
             {
                 "test": /\.css$/,
@@ -62,5 +72,5 @@ module.exports = {
         filename: 'index.html',
         scriptLoading: 'defer'
     }), new MiniCssExtractPlugin(),
-    new webpack.DefinePlugin({"MAP_KEY": `"${process.env.MAP_KEY}"`})]
+        new webpack.DefinePlugin({"MAP_KEY": `"${process.env.MAP_KEY}"`})]
 }

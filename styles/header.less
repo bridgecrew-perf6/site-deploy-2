@@ -1,5 +1,7 @@
+@import "theme";
+
 .address_overlay {
-    background: linear-gradient(#fff, transparent);
+    background: linear-gradient(@body-color, transparent);
 
     flex: 1;
     flex-direction: column;
@@ -68,10 +70,10 @@ header {
     box-sizing: border-box;
 
     width: 100%;
-    background: white;
-    color: black;
+    background: @header-color;
+    color: @main-text-color;
 
-    border-bottom: 1px solid #e3e4e6;
+    border-bottom: 1px solid @border-color;
 }
 
 .title {
@@ -88,11 +90,11 @@ header {
     align-items: center;
     padding: 16px 44px;
 
-    border-right: 1px solid #e3e4e6;
+    border-right: 1px solid @border-color;
 }
 
 .item:hover {
-    background: #e3e4e6;
+    background: @header-item-hover-color;
 }
 
 .first-item {
@@ -105,7 +107,7 @@ header {
     align-items: center;
 
     width: 100%;
-    background: #e3e4e6;
+    background: @address-color;
     text-align: center;
 
     padding: 16px;
@@ -118,7 +120,7 @@ header {
 
 .last-item {
     margin-left: 0;
-    border-left: 1px solid #e3e4e6;
+    border-left: 1px solid @border-color;
 }
 
 .big {
@@ -131,7 +133,7 @@ header {
     justify-content: center;
 
     width: 10%;
-    border-right: 1px solid #e3e4e6;
+    border-right: 1px solid @border-color;
     font-size: 24px;
 }
 
@@ -139,7 +141,7 @@ header {
     .title {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid #e3e4e6;
+        border-bottom: 1px solid @border-color;
     }
 
     header {
@@ -152,7 +154,7 @@ header {
 
     .item {
         justify-content: center;
-        border-top: 1px solid #e3e4e6;
+        border-top: 1px solid @border-color;
     }
 
     .first-item {

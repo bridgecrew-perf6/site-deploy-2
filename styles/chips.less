@@ -1,3 +1,5 @@
+@import "theme";
+
 .chips {
     display: flex;
     flex-wrap: wrap;
@@ -10,10 +12,10 @@
     padding: 8px 12px;
     display: inline-flex;
 
-    background: #F6F6F6;
-    color: #393939;
+    background: @chip-background;
+    color: @chip-text-color;
 
-    border: 1px #BFBDBD solid;
+    border: 1px @chip-border-color solid;
     border-radius: 16px;
 
     margin: 4px;
@@ -22,7 +24,7 @@
 }
 
 .chip:hover {
-    background: #D8D8D8;
+    background: @chip-hover-color;
 }
 
 .chip-icon {
