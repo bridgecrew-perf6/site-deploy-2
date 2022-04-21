@@ -6,6 +6,7 @@ import './styles/header.less'
 
 import './auth-dialog'
 import {overlay_toggle} from './cart-overlay'
+import theme from "./theme";
 
 let map;
 
@@ -36,7 +37,7 @@ document.getElementById("close_map_overlay").onclick = ev => {
 
 let cart_header_button = document.getElementById('cart_button');
 cart_header_button.onclick = ev => {
-    if(overlay_toggle()) {
-        cart_header_button.style.background = "#e3e4e5"
-    } else cart_header_button.style.background = "#fff"
+    if (overlay_toggle()) {
+        cart_header_button.style.background = theme.dark_color
+    } else cart_header_button.style.background = theme.primary_color
 }

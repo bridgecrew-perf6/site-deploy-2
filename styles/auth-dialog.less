@@ -13,8 +13,8 @@
   border: 1px solid @border-color;
   border-top: 0;
 
-  background: @body-color;
-  color: @secondary-text-color;
+  background: @card-color;
+  color: @text-color;
 
   z-index: 2;
 
@@ -42,36 +42,12 @@
     padding: 8px;
 
     background: @secondary-background;
+    color: @text-color;
+
     border: none;
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .2);
 
     cursor: pointer;
-  }
-
-
-  .login_switch {
-    display: flex;
-    flex-direction: row;
-
-    margin-bottom: 8px;
-    cursor: pointer;
-
-    text-align: center;
-
-    #login {
-      background: @login-button-color;
-    }
-
-    * {
-      padding-top: 4px;
-      padding-bottom: 4px;
-
-      height: 100%;
-      width: 50%;
-
-      border: 1px solid @border-color;
-      border-top: none;
-    }
   }
 }
 

@@ -1,4 +1,5 @@
-import './styles/dialog.less'
+import './styles/auth-dialog.less'
+import theme from "./theme";
 
 let submit = document.getElementById('submit-login-button')
 let button = document.getElementById('login_button')
@@ -8,11 +9,11 @@ let isDialogOpened = false;
 
 button.onclick = ev => {
     if (isDialogOpened) {
-        button.style.background = "#fff"
+        button.style.background = theme.primary_color
         login_dialog.style.display = 'none'
         isDialogOpened = false
     } else {
-        button.style.background = "#e3e4e6"
+        button.style.background = theme.dark_color
         login_dialog.style.display = 'flex'
         isDialogOpened = true;
     }

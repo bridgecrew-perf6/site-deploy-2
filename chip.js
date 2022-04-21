@@ -1,3 +1,5 @@
+import theme from "./theme";
+
 class Chip {
     constructor(chip, onSelected, onDeselected) {
         this.chip = chip;
@@ -9,7 +11,7 @@ class Chip {
             } else {
                 this.isClicked = true;
                 chip.firstElementChild.style.display = 'inline-block';
-                chip.style.background = '#D8D8D8'
+                chip.style.background = theme.dark_color
                 onSelected();
             }
         };
@@ -18,7 +20,7 @@ class Chip {
     deselect() {
         this.isClicked = false;
         this.chip.firstElementChild.style.display = 'none';
-        this.chip.style.background = '#f6f6f6';
+        this.chip.style.background = theme.light_color;
     }
 }
 
