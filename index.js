@@ -10,6 +10,7 @@ import './styles/footer.less'
 import './styles/cart-overlay.less'
 import './styles/index.less'
 
+import './robots.txt'
 require.context('./images/');
 import './manifest.json'
 
