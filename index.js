@@ -1,14 +1,13 @@
 import './header'
 
 // Icons
-import './fonts/MaterialIcons-Regular.woff2'
-import './fonts/MaterialIcons-Regular.woff'
-import './fonts/MaterialIcons-Regular.eot'
+import './fonts/MaterialIconsOutlined.woff2'
 import './styles/icons.less'
 
 // CSS
 import './styles/chips.less'
 import './styles/footer.less'
+import './styles/cart-overlay.less'
 import './styles/index.less'
 
 require.context('./images/');

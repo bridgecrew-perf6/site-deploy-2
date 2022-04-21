@@ -13,6 +13,123 @@ const Info = {
         },
         
         {
+            id: "b'1'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'10'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'11'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'12'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'13'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'2'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'3'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'4'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'5'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'6'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'7'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'8'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
+            id: "b'9'",
+            title: "Пицца",
+            category: "Итальянские пиццы",
+            description: "Lorem ispum sit amet",
+            image_uri: "pizza.webp",
+            price: 35000.0,
+        },
+        
+        {
             id: "c77d7e80-05c6-2e43-80dc-04a58302169b",
             title: "Пепперони",
             category: "Пиццы с пепперони",

@@ -1,179 +1,179 @@
 @import "theme";
 
 .address_overlay {
-    background: linear-gradient(@body-color, transparent);
+  background: linear-gradient(@body-color, transparent);
 
-    flex: 1;
-    flex-direction: column;
-    display: none;
+  flex: 1;
+  flex-direction: column;
+  display: none;
 
-    position: fixed;
+  position: fixed;
 
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .holder {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .map_container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .center-marker {
-    position: absolute;
-    margin-bottom: 72px;
-    z-index: 999;
-    font-size: 72px;
+  position: absolute;
+  margin-bottom: 72px;
+  z-index: 999;
+  font-size: 72px;
 }
 
 .address_view {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 
-    width: 100%;
+  width: 100%;
 
-    text-align: center;
-    padding: 16px;
-    font-size: 20px;
+  text-align: center;
+  padding: 16px;
+  font-size: 20px;
 }
 
 .close {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
+.header_main {
+  display: flex;
+  justify-content: space-between;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    width: 100%;
-    background: @header-color;
-    color: @main-text-color;
+  width: 100%;
+  background: @secondary-background;
+  color: @main-text-color;
 
-    border-bottom: 1px solid @border-color;
+  border-bottom: 1px solid @border-color;
 }
 
 .title {
-    padding: 0.7em;
+  padding: 0.7em;
 }
 
 .right_panel {
-    display: flex;
-    align-self: stretch;
+  display: flex;
+  align-self: stretch;
 }
 
 .item {
-    display: flex;
-    align-items: center;
-    padding: 16px 44px;
+  display: flex;
+  align-items: center;
+  padding: 16px 44px;
 
-    border-right: 1px solid @border-color;
+  border-right: 1px solid @border-color;
 }
 
 .item:hover {
-    background: @header-item-hover-color;
+  background: @header-item-hover-color;
 }
 
 .first-item {
-    border-right: none;
+  border-right: none;
 }
 
 .address {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 100%;
-    background: @address-color;
-    text-align: center;
+  width: 100%;
+  background: @address-color;
+  text-align: center;
 
-    padding: 16px;
-    font-size: 18px;
+  padding: 16px;
+  font-size: 18px;
 }
 
 .your_address {
-    padding-left: 8px;
+  padding-left: 8px;
 }
 
 .last-item {
-    margin-left: 0;
-    border-left: 1px solid @border-color;
+  margin-left: 0;
+  border-left: 1px solid @border-color;
 }
 
 .big {
-    font-size: 32px !important;
-    padding-right: 8px;
+  font-size: 32px !important;
+  padding-right: 8px;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    width: 10%;
-    border-right: 1px solid @border-color;
-    font-size: 24px;
+  width: 10%;
+  border-right: 1px solid @border-color;
+  font-size: 24px;
 }
 
 @media (max-width: 700px) {
-    .title {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid @border-color;
-    }
+  .title {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid @border-color;
+  }
 
-    header {
-        flex-direction: column;
-    }
+  .header_main {
+    flex-direction: column;
+  }
 
-    .right_panel {
-        flex-direction: column;
-    }
+  .right_panel {
+    flex-direction: column;
+  }
 
-    .item {
-        justify-content: center;
-        border-top: 1px solid @border-color;
-    }
+  .item {
+    justify-content: center;
+    border-top: 1px solid @border-color;
+  }
 
-    .first-item {
-        display: none;
-    }
+  .first-item {
+    display: none;
+  }
 
-    .title {
-        margin: auto;
-        width: auto;
-        text-align: center;
-    }
+  .title {
+    margin: auto;
+    width: auto;
+    text-align: center;
+  }
 
-    .address {
-        width: auto;
-    }
+  .address {
+    width: auto;
+  }
 
-    .item {
-        margin: 0;
-        border-left: none;
-        border-right: none;
-    }
+  .item {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+  }
 }
