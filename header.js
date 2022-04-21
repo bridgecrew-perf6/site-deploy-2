@@ -5,8 +5,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import './styles/header.less'
 
 import './auth-dialog'
-import {overlay_toggle} from './cart-overlay'
-import theme from "./theme";
 
 let map;
 
@@ -32,12 +30,4 @@ document.getElementById("address").onclick = ev => {
 
 document.getElementById("close_map_overlay").onclick = ev => {
     addressOverlay.style.display = 'none';
-}
-
-
-let cart_header_button = document.getElementById('cart_button');
-cart_header_button.onclick = ev => {
-    if (overlay_toggle()) {
-        cart_header_button.style.background = theme.dark_color
-    } else cart_header_button.style.background = theme.primary_color
 }

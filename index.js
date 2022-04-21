@@ -21,6 +21,7 @@ import {filter, render} from "./filter";
 let chips_root = document.getElementById("chips")
 let products = document.getElementById("products")
 let chips = chips_root.getElementsByClassName("chip");
+import {add_product} from './cart-overlay'
 let currentChip = null;
 
 for (let i = 0; i < chips.length; i++) {
