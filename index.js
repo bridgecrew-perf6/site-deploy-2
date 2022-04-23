@@ -24,7 +24,11 @@ const products = document.getElementById("products")
 const chips = chips_root.getElementsByClassName("chip");
 
 import CartOverlay from './cart-overlay'
+//import Api from "./api";
+
 const cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
+//const api = new Api();
+
 
 updateListeners(document)
 
