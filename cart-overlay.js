@@ -1,38 +1,55 @@
 import theme from "./theme";
 
-let overlay = document.getElementById('cart_overlay')
-let isClicked = false;
-let products = []
+class CartOverlay {
+    constructor(overlay) {
+        this.isClicked = false;
+        this.products = []
+        this.cart_header_button = document.getElementById('cart_button');
+        this.empty_cart = document.getElementById('empty_cart')
+        this.order_button = document.getElementById('order_button')
+        this.overlay = overlay
 
-let cart_header_button = document.getElementById('cart_button');
-cart_header_button.onclick = ev => {
-    if (overlay_toggle()) {
-        cart_header_button.style.background = theme.dark_color
-    } else cart_header_button.style.background = theme.primary_color
-}
+        this.order_button.onclick = ev => {
 
-function overlay_toggle() {
-    if (isClicked) {
-        // Hide
-        overlay.style.display = 'none';
-        isClicked = false;
-    } else {
-        // Show
-        overlay.style.display = 'block';
-        isClicked = true;
+        }
+
+        this.cart_header_button.onclick = ev => {
+            this.toggle()
+        }
     }
 
-    return isClicked;
-}
+    show() {
+        this.cart_header_button.style.background = theme.dark_color
+        this.overlay.style.display = 'block';
+        this.isClicked = true;
+    }
 
-export function add_product(product) {
-    if (products.empty) overlay.innerHTML = ''
-    products += product
+    hide() {
+        this.overlay.style.display = 'none';
+        this.isClicked = false;
+        this.cart_header_button.style.background = theme.primary_color
+    }
 
-    let element = document.createElement('div')
-    element.classList.add('cart_product')
-    element.id = product.id
-    element.innerHTML = `
+    toggle() {
+        if (this.isClicked) {
+            this.hide();
+        } else {
+            this.show();
+        }
+
+        return this.isClicked;
+    }
+
+    add_product(product) {
+        this.empty_cart.style.display = 'none'
+        this.order_button.style.display = 'block'
+
+        product.count = 1
+        this.products.push(product)
+
+        let element = document.createElement('div')
+        element.classList.add('cart_product')
+        element.innerHTML = `
 <img class="cart_product_img" src="${product.image_uri}" alt="" loading="lazy"/>
 <div class="cart_product_info">
    <div class="cart_product_title">${product.title}</div>
@@ -41,7 +58,10 @@ export function add_product(product) {
       ${product.description}
       </span>
       <div class="cart_product_count">
-         <span id="cart_product_count_text"><span style="margin-right: 4px">x</span>1</span>
+         <span id="cart_product_count_text">
+             <span style="margin-right: 4px">x</span>
+             <span class="cart_product_count_number">1</span>
+         </span>
          <div class="controls">
             <div class="count_controls">
                <span class="material-icons-outlined count_up">
@@ -51,7 +71,7 @@ export function add_product(product) {
                keyboard_arrow_down
                </span>
             </div>
-            <span class="material-icons-outlined" id="delete_product">
+            <span class="material-icons-outlined delete_product">
             clear
             </span>
          </div>
@@ -59,17 +79,41 @@ export function add_product(product) {
    </div>
    <div class="cart_product_price">${product.price / 100} ₽</div>
 </div>`
-    element.getElementsByClassName("count_up")[0].onclick = ev => {
-        console.log('count_up');
-    }
-    element.getElementsByClassName("count_down")[0].onclick = ev => {
-        console.log('count_down')
+
+        let count_element = element.getElementsByClassName("cart_product_count_number").item(0);
+
+        element.getElementsByClassName("count_up")[0].onclick = () => {
+            product.count++
+            count_element.textContent = product.count
+        }
+
+        element.getElementsByClassName("count_down")[0].onclick = () => {
+            if (product.count !== 1) {
+                product.count--
+                count_element.textContent = product.count
+            }
+        }
+
+        element.getElementsByClassName('delete_product').item(0).onclick = () => {
+            this.remove_product(product, element)
+        };
+
+        this.overlay.prepend(element)
     }
 
-    overlay.appendChild(element)
+    remove_product(product, element) {
+        let index = this.products.indexOf(product);
+        if (index !== -1) {
+            this.products.splice(index, 1);
+        }
+        console.log(this.products);
+
+        element.remove()
+        if (this.products.length === 0) {
+            this.empty_cart.style.display = 'inline-block'
+            this.order_button.style.display = 'none'
+        }
+    }
 }
 
-export function remove_product(product) {
-    products -= product;
-    document.getElementById(product.uid).remove()
-}
+export default CartOverlay;
