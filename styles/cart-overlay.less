@@ -1,8 +1,6 @@
 @import 'theme';
 
 .cart_overlay {
-  z-index: 2;
-
   display: none;
 
   background: @card-color;
@@ -13,20 +11,6 @@
   top: 10%;
   right: 20px;
   width: 50vw;
-
-  #order_button {
-    display: none;
-
-    width: 100%;
-
-    border: none;
-    padding: 12px;
-    margin-top: 8px;
-
-    font-size: 18px;
-
-    background: @dark-color;
-  }
 
   .cart_product {
     padding: 16px;
@@ -57,7 +41,7 @@
           }
         }
 
-        .delete_product {
+        #delete_product {
           cursor: pointer;
           background: @secondary-background;
 
@@ -75,7 +59,7 @@
           color: @text-color;
         }
 
-        .delete_product:hover {
+        #delete_product:hover {
           background: @delete-button-hover-color;
         }
       }

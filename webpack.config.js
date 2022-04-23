@@ -3,20 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-    "mode": "none",
-    "entry": "./index.js",
-    "output": {
-        "path": __dirname + '/dist',
-        "filename": "bundle.js",
+    mode: "production",
+    entry: "./index.js",
+    output: {
+        path: __dirname + '/dist',
+        filename: "bundle.js",
         clean: true
     },
     devServer: {
         port: 3000
     },
     optimization: {
-        minimizer: [new CssMinimizerPlugin()],
+        minimizer: [new CssMinimizerPlugin(), new TerserPlugin({
+            test: /\.js(\?.*)?$/i,
+        })],
         usedExports: true,
         minimize: true
     },
@@ -53,7 +56,7 @@ module.exports = {
                     MiniCssExtractPlugin.loader, "css-loader"
                 ]
             },
-            {
+            /*{
                 "test": /\.js$/,
                 "exclude": /node_modules/,
                 "use": {
@@ -64,7 +67,7 @@ module.exports = {
                         ]
                     }
                 }
-            },
+            },*/
         ]
     },
     plugins: [new HtmlWebpackPlugin({
