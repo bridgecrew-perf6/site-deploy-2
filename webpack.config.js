@@ -5,12 +5,21 @@ const webpack = require("webpack");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
+
 module.exports = {
     mode: "production",
-    entry: "./index.js",
+    entry: {
+        index: {
+            import: "./index.js",
+            dependOn: ['mapbox']
+        },
+        mapbox: {
+            import: './node_modules/mapbox-gl/dist/mapbox-gl-csp.js',
+        }
+    },
     output: {
         path: __dirname + '/dist',
-        filename: "bundle.js",
+        filename: "[name].bundle.js",
         clean: true
     },
     devServer: {
@@ -21,10 +30,17 @@ module.exports = {
             test: /\.js(\?.*)?$/i,
         })],
         usedExports: true,
-        minimize: true
+        minimize: true,
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     module: {
         rules: [
+            {
+                "test": /\/fonts\/icons\.css$/,
+                type: 'asset/resource',
+            },
             {
                 test: /\.jpe?g$|\.avif$|\.png$|\.webp$|\.svg$|\.txt$/,
                 loader: 'file-loader',
@@ -61,24 +77,13 @@ module.exports = {
                     MiniCssExtractPlugin.loader, "css-loader"
                 ]
             },
-            /*{
-                "test": /\.js$/,
-                "exclude": /node_modules/,
-                "use": {
-                    "loader": "babel-loader",
-                    "options": {
-                        "presets": [
-                            "@babel/preset-env",
-                        ]
-                    }
-                }
-            },*/
         ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: 'index.html',
         filename: 'index.html',
-        scriptLoading: 'defer'
-    }), new MiniCssExtractPlugin(),
-        new webpack.DefinePlugin({"MAP_KEY": `"${process.env.MAP_KEY}"`})]
+        scriptLoading: 'defer',
+    }), new MiniCssExtractPlugin({chunkFilename: '[name].css'}),
+        new webpack.DefinePlugin({"MAP_KEY": `"${process.env.MAP_KEY}"`}),
+    ]
 }

@@ -2,7 +2,7 @@ import './header'
 
 // Icons
 import './fonts/MaterialIconsOutlined.woff2'
-import './styles/icons.less'
+import '-!./fonts/icons.css'
 
 // CSS
 import './styles/chips.less'
@@ -17,7 +17,7 @@ import './manifest.json'
 
 import Info from './info'
 import Chip from "./chip";
-import {filter, render} from "./renderer";
+import {render} from "./renderer";
 
 const chips_root = document.getElementById("chips")
 const products = document.getElementById("products")
@@ -25,8 +25,7 @@ const chips = chips_root.getElementsByClassName("chip");
 
 import CartOverlay from './cart-overlay'
 //import Api from "./api";
-
-const cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
+let cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
 //const api = new Api();
 
 

@@ -14,6 +14,7 @@ class CartOverlay {
         }
 
         this.cart_header_button.onclick = ev => {
+            console.log("clicked")
             this.toggle()
         }
     }
@@ -65,10 +66,10 @@ class CartOverlay {
          <div class="controls">
             <div class="count_controls">
                <span class="material-icons-outlined count_up">
-               keyboard_arrow_up
+               &#xe316;
                </span>
                <span class="material-icons-outlined count_down">
-               keyboard_arrow_down
+               &#xe313;
                </span>
             </div>
             <span class="material-icons-outlined delete_product">
