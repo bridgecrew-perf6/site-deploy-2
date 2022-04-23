@@ -25,6 +25,7 @@ class Header {
             document.getElementById('login_input'),
             document.getElementById('password_input'),
             document.getElementById('submit-login-button'),
+            document.getElementById('login_dialog_warn'),
             api)
 
         login_button.onclick = ev => {

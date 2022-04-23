@@ -1,28 +1,44 @@
-import './styles/auth-dialog.less'
+import './styles/login-dialog.less'
 import theme from "./theme";
 
 class AuthDialog {
-    constructor(login_dialog, login_input, password_input, submit_button, api) {
+    constructor(login_dialog, login_input, password_input, submit_button, warn_element, api) {
         this.login_dialog = login_dialog;
         this.login_input = login_input;
         this.password_input = password_input;
+        this.submit_button = submit_button;
+        this.warn_element = warn_element;
         this.api = api;
 
-        submit_button.onclick = async ev => {
-            submit_button.disabled = true;
-            submit_button.style.background = theme.dark_color
-            submit_button.style.cursor = 'grab'
+        this.submit_button.onclick = async ev => {
+            this.lockSubmitButton()
 
             try {
                 let token = await api.login(this.login_input.value, this.password_input.value)
 
-                submit_button.style.cursor = 'pointer'
-                submit_button.style.background = theme.light_color
-                submit_button.disabled = false;
+                this.unlockSubmitButton()
             } catch (e) {
+                this.unlockSubmitButton()
+                this.setWarnMessage("Неправильный номер телефона и/или пароль")
                 console.error(e)
             }
         }
+    }
+
+    setWarnMessage(message) {
+        this.warn_element.innerText = message
+    }
+
+    unlockSubmitButton() {
+        this.submit_button.style.cursor = 'pointer'
+        this.submit_button.style.background = theme.light_color
+        this.submit_button.disabled = false;
+    }
+
+    lockSubmitButton() {
+        this.submit_button.disabled = true;
+        this.submit_button.style.background = theme.dark_color
+        this.submit_button.style.cursor = 'grab'
     }
 
     hide() {
@@ -40,7 +56,7 @@ class AuthDialog {
      * @returns {boolean|*} true if dialog is opened, false if it's hidden
      */
     toggle() {
-        if(this.isDialogOpened) {
+        if (this.isDialogOpened) {
             this.hide()
         } else this.show()
 

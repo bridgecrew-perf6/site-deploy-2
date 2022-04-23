@@ -6,7 +6,7 @@ export function render(product, index) {
             <div class="product_description">${product.description}</div>
             <div class="product_price">${product.price / 100} ₽</div>
             <span class="material-icons-outlined add_to_cart" id="${index}">
-                add_shopping_cart
+                &#xe854;
             </span>
         </div>
         `
