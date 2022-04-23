@@ -11,12 +11,12 @@ import './styles/cart-overlay.less'
 import './styles/index.less'
 
 import './robots.txt'
+
 require.context('./images/');
 import './manifest.json'
 
 import Info from './info'
 import Chip from "./chip";
-<<<<<<< HEAD
 import {filter, render} from "./renderer";
 
 const chips_root = document.getElementById("chips")
@@ -31,28 +31,41 @@ const cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
 
 
 updateListeners(document)
-=======
-import {filter, render} from "./filter";
->>>>>>> parent of 41a45c1... Backend changes:
 
-let chips_root = document.getElementById("chips")
-let products = document.getElementById("products")
-let chips = chips_root.getElementsByClassName("chip");
-import {add_product} from './cart-overlay'
 let currentChip = null;
 
 for (let i = 0; i < chips.length; i++) {
     let chip = chips[i];
     let chipClass = new Chip(chip, function () {
-        if(currentChip != null) currentChip.deselect()
+        if (currentChip != null) currentChip.deselect()
 
         currentChip = chipClass;
-        filter(Info.categories[i], products)
+        let root_str = ''
+        Info.products.forEach((product, index) => {
+            if (product.category === Info.categories[i]) {
+                root_str += render(product, index)
+            }
+        })
+        products.innerHTML = root_str;
+        updateListeners(products)
     }, function () {
         currentChip = null;
-        products.innerHTML = '';
-        Info.products.forEach(product => {
-            render(product, products)
+
+        let root = ''
+        Info.products.forEach((product, index) => {
+            root += render(product, index)
         })
+        products.innerHTML = root;
+
+        updateListeners(products)
     })
+}
+
+function updateListeners(root) {
+    for (let button of root.getElementsByClassName('add_to_cart')) {
+        button.onclick = ev => {
+            cartOverlay.show()
+            cartOverlay.add_product(Info.products[button.id])
+        }
+    }
 }
