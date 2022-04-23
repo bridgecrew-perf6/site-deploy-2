@@ -1,4 +1,10 @@
-import './header'
+import Info from './info'
+import {render} from "./renderer";
+
+// UI
+import Chip from "./chip";
+import CartOverlay from './cart-overlay'
+import Header from './header'
 
 // Icons
 import './fonts/MaterialIconsOutlined.woff2'
@@ -11,19 +17,31 @@ import './styles/cart-overlay.less'
 import './styles/index.less'
 
 import './robots.txt'
-
-require.context('./images/');
 import './manifest.json'
 
-import Info from './info'
-import Chip from "./chip";
-import {render} from "./renderer";
+import Api from "./api";
+
+require.context('./images/');
 
 const chips_root = document.getElementById("chips")
 const products = document.getElementById("products")
 const chips = chips_root.getElementsByClassName("chip");
+const api = new Api();
 
-import CartOverlay from './cart-overlay'
+
+const header = new Header(api,
+    document.getElementById("address_text"),
+    document.getElementById("address_overlay")
+)
+
+document.getElementById("address").onclick = ev => {
+    header.showMap()
+}
+
+document.getElementById("close_map_overlay").onclick = ev => {
+    header.closeMap()
+}
+
 //import Api from "./api";
 let cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
 //const api = new Api();

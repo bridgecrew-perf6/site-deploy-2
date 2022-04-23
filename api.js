@@ -12,7 +12,7 @@ class Api {
     async login(phone, password) {
         const result = await this.call("login", {"phone": phone, "password": password})
 
-        console.log(result)
+        return result
     }
 
     order() {
@@ -22,6 +22,9 @@ class Api {
     async call(method, params) {
         let response = await fetch('https://functions.yandexcloud.net/d4esca80sgcmhl0hsrmc', {
             method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 "jsonrpc": "2.0",
                 "id": 1,
@@ -33,7 +36,7 @@ class Api {
         if (response.ok) {
             response = await response.json();
             if (response.error != null) {
-                console.error(`API error: ${response.error.message}`)
+                console.log(`API error: ${response.error.message}`)
                 throw new JSONRPCException(response.error.code);
             } else {
                 return response.result;
