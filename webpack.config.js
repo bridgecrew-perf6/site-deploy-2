@@ -10,15 +10,15 @@ let files = glob.sync('*.html', {})
 
 let plugins;
 plugins = files.map(
-            file => {
-                console.log(file)
-                return new HtmlWebpackPlugin({
-                    template: file,
-                    filename: file,
-                    scriptLoading: 'defer',
-                });
-            }
-        );
+    file => {
+        console.log(file)
+        return new HtmlWebpackPlugin({
+            template: file,
+            filename: file,
+            scriptLoading: 'defer',
+        });
+    }
+);
 
 module.exports = {
     mode: "development",
@@ -52,10 +52,6 @@ module.exports = {
     module: {
         rules: [
             {
-                "test": /\/fonts\/icons\.css$/,
-                type: 'asset/resource',
-            },
-            {
                 test: /\.jpe?g$|\.avif$|\.png$|\.webp$|\.svg$|\.txt$/,
                 loader: 'file-loader',
                 options: {
@@ -68,7 +64,8 @@ module.exports = {
                 options: {
                     name: 'fonts/[name].[ext]?[hash]',
                     publicPath: '/'
-                }
+                },
+                enforce: 'post'
             },
             {
                 test: /\bmapbox-gl-csp-worker.js\b/i,
@@ -91,6 +88,12 @@ module.exports = {
                     MiniCssExtractPlugin.loader, "css-loader"
                 ]
             },
+            {
+                "test": /\.fcss$/,
+                loader: "file-loader",
+                options: {name: "[name].css"},
+                enforce: 'post'
+            }
         ]
     },
     plugins: [

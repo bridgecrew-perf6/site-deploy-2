@@ -8,8 +8,8 @@ import CartOverlay from './cart-overlay'
 import Header from './header'
 
 // Icons
-import './fonts/MaterialIconsOutlined.woff2'
-import '-!./fonts/icons.css'
+import '!./fonts/MaterialIconsOutlined.woff2'
+import '!./fonts/icons.fcss'
 
 // CSS
 import './styles/chips.less'
