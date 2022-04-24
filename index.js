@@ -36,7 +36,7 @@ const addressOverlay = new AddressOverlay(
 const header = new Header(api, addressOverlay)
 
 //import Api from "./api";
-let cartOverlay = new CartOverlay(document.getElementById('cart_overlay'))
+let cartOverlay = new CartOverlay(document.getElementById('cart_overlay'), api)
 //const api = new Api();
 
 

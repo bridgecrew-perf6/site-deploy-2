@@ -1,10 +1,24 @@
 const path = require('path');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
+let files = glob.sync('*.html', {})
+
+let plugins;
+plugins = files.map(
+            file => {
+                console.log(file)
+                return new HtmlWebpackPlugin({
+                    template: file,
+                    filename: file,
+                    scriptLoading: 'defer',
+                });
+            }
+        );
 
 module.exports = {
     mode: "development",
@@ -79,11 +93,8 @@ module.exports = {
             },
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: 'index.html',
-        filename: 'index.html',
-        scriptLoading: 'defer',
-    }), new MiniCssExtractPlugin({chunkFilename: '[name].css'}),
+    plugins: [
+        new MiniCssExtractPlugin({chunkFilename: '[name].css'}),
         new webpack.DefinePlugin({"MAP_KEY": `"${process.env.MAP_KEY}"`}),
-    ]
+    ].concat(plugins)
 }
