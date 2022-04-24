@@ -5,9 +5,18 @@ import './auth-dialog'
 import AuthDialog from "./auth-dialog";
 import theme from "./theme";
 
+import {renderProfileInfo} from "./renderer";
+
 class Header {
-    constructor(api, addressText, addressOverlay) {
-        this.addressOverlay = addressOverlay;
+    constructor(api) {
+        this.addressOverlay = document.getElementById("address_overlay");
+        this.addressText = document.getElementById("address_text");
+        this.loginText = document.getElementById('login_text')
+
+        let userPhone = localStorage.getItem('USER_PHONE')
+        if(userPhone != null) {
+            this.loginText.innerHTML = renderProfileInfo(userPhone)
+        }
 
         this.promise = new Promise(
             (resolve, reject) => {
@@ -22,16 +31,20 @@ class Header {
 
         let login_button = document.getElementById('login_button')
         const authDialog = new AuthDialog(document.getElementById('login_dialog'),
-            () => {
-
+            result => {
+                this.loginText.innerHTML = renderProfileInfo(result.phone)
             },
             api)
 
         login_button.addEventListener("click", () => {
-            if (!authDialog.toggle()) {
-                login_button.style.background = theme.primary_color
+            if(userPhone == null) {
+                if (!authDialog.toggle()) {
+                    login_button.style.background = theme.primary_color
+                } else {
+                    login_button.style.background = theme.dark_color
+                }
             } else {
-                login_button.style.background = theme.dark_color
+
             }
         });
     }

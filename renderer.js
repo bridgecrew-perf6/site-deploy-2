@@ -11,3 +11,9 @@ export function render(product, index) {
         </div>
         `
 }
+
+export function renderProfileInfo(phone) {
+    return `
+    ${phone}
+    `
+}

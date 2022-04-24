@@ -24,6 +24,9 @@ class AuthDialog {
             try {
                 const result = await api.login(this.login_input.value, this.password_input.value)
                 localStorage.setItem("JWT_TOKEN", result.token)
+                localStorage.setItem("USER_PHONE", result.phone)
+
+                whenAuthFinished(result)
 
                 this.unlockSubmitButton()
                 this.setWarnMessage("")

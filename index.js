@@ -29,10 +29,7 @@ const chips = chips_root.getElementsByClassName("chip");
 const api = new Api();
 
 
-const header = new Header(api,
-    document.getElementById("address_text"),
-    document.getElementById("address_overlay")
-)
+const header = new Header(api)
 
 document.getElementById("address").onclick = ev => {
     header.showMap()
