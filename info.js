@@ -145,7 +145,8 @@ const Info = {
         
         "Пиццы с пепперони",
         
-    ]
+    ],
+    function_id: "d4esca80sgcmhl0hsrmc"
 };
 
 export default Info;

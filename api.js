@@ -1,3 +1,5 @@
+import Info from "./info";
+
 class JSONRPCException {
     constructor(code) {
         this.code = code;
@@ -18,7 +20,7 @@ class Api {
     }
 
     async call(method, params) {
-        let response = await fetch('https://functions.yandexcloud.net/d4esca80sgcmhl0hsrmc', {
+        let response = await fetch(`https://functions.yandexcloud.net/${Info.function_id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
