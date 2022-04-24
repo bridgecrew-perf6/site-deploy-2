@@ -40,9 +40,7 @@ module.exports = {
         port: 3000
     },
     optimization: {
-        minimizer: [new CssMinimizerPlugin(), new TerserPlugin({
-            test: /\.js(\?.*)?$/i,
-        })],
+        minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
         usedExports: true,
         minimize: true,
         splitChunks: {

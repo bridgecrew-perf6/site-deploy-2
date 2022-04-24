@@ -5,6 +5,10 @@
     "build": "webpack",
     "dev": "webpack-dev-server"
   },
+  "sideEffects": [
+    "**/*.css",
+    "**/*.less"
+  ],
   "dependencies": {
     "mapbox-gl": "^2.8.2",
     "material-design-icons": "^3.0.1",
