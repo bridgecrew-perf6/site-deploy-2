@@ -2,27 +2,39 @@ import './styles/login-dialog.less'
 import theme from "./theme";
 
 class AuthDialog {
-    constructor(login_dialog, login_input, password_input, submit_button, warn_element, api) {
+    /**
+     * Constructor of AuthDialog
+     * @param login_dialog Dialog element
+     * @param whenAuthFinished Callback that will be called when user successfully log-in into account
+     * @param api API class
+     */
+    constructor(login_dialog, whenAuthFinished, api) {
         this.login_dialog = login_dialog;
-        this.login_input = login_input;
-        this.password_input = password_input;
-        this.submit_button = submit_button;
-        this.warn_element = warn_element;
+
+        this.login_input = document.getElementById('login_input');
+        this.password_input = document.getElementById('password_input');
+        this.submit_button = document.getElementById('submit-login-button');
+        this.warn_element = document.getElementById('login_dialog_warn');
+
         this.api = api;
 
-        this.submit_button.onclick = async ev => {
+        this.login_dialog.addEventListener("click", async () => {
             this.lockSubmitButton()
 
             try {
-                let token = await api.login(this.login_input.value, this.password_input.value)
+                const result = await api.login(this.login_input.value, this.password_input.value)
+                localStorage.setItem("JWT_TOKEN", result.token)
 
                 this.unlockSubmitButton()
+                this.setWarnMessage("")
+                this.hide()
+                whenAuthFinished()
             } catch (e) {
                 this.unlockSubmitButton()
                 this.setWarnMessage("Неправильный номер телефона и/или пароль")
                 console.error(e)
             }
-        }
+        });
     }
 
     setWarnMessage(message) {

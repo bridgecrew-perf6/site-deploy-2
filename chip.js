@@ -5,16 +5,24 @@ class Chip {
         this.chip = chip;
 
         chip.onclick = () => {
-            if (this.isClicked) {
-                this.deselect();
-                onDeselected();
-            } else {
-                this.isClicked = true;
-                chip.firstElementChild.style.display = 'inline-block';
-                chip.style.background = theme.dark_color
-                onSelected();
-            }
+            if(this.toggle()) {
+                onSelected()
+            } else onDeselected();
         };
+    }
+
+    toggle() {
+        if(this.isSelected) {
+            this.deselect()
+        } else this.select()
+
+        return this.isSelected
+    }
+
+    select() {
+        this.isSelected = true;
+        this.chip.firstElementChild.style.display = 'inline-block';
+        this.chip.style.background = theme.dark_color
     }
 
     deselect() {

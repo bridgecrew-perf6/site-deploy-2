@@ -22,19 +22,18 @@ class Header {
 
         let login_button = document.getElementById('login_button')
         const authDialog = new AuthDialog(document.getElementById('login_dialog'),
-            document.getElementById('login_input'),
-            document.getElementById('password_input'),
-            document.getElementById('submit-login-button'),
-            document.getElementById('login_dialog_warn'),
+            () => {
+
+            },
             api)
 
-        login_button.onclick = ev => {
+        login_button.addEventListener("click", () => {
             if (!authDialog.toggle()) {
                 login_button.style.background = theme.primary_color
             } else {
                 login_button.style.background = theme.dark_color
             }
-        }
+        });
     }
 
     closeMap() {

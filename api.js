@@ -10,9 +10,7 @@ class Api {
     }
 
     async login(phone, password) {
-        const result = await this.call("login", {"phone": phone, "password": password})
-
-        return result
+        return await this.call("login", {"phone": phone, "password": password})
     }
 
     order() {

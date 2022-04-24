@@ -73,7 +73,7 @@ class CartOverlay {
                </span>
             </div>
             <span class="material-icons-outlined delete_product">
-            clear
+                &#xe14c;
             </span>
          </div>
       </div>
@@ -107,7 +107,6 @@ class CartOverlay {
         if (index !== -1) {
             this.products.splice(index, 1);
         }
-        console.log(this.products);
 
         element.remove()
         if (this.products.length === 0) {
