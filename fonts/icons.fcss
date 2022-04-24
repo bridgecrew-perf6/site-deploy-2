@@ -3,10 +3,10 @@
   font-style: normal;
   font-weight: 400;
   src: url(fonts/MaterialIconsOutlined.woff2) format('woff2');
+  font-display: swap;
 }
 
 .material-icons-outlined {
-  font-display: block;
   font-family: 'Material Icons Outlined';
   font-weight: normal;
   font-style: normal;
