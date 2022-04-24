@@ -21,7 +21,7 @@ plugins = files.map(
 );
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         index: {
             import: "./index.js",

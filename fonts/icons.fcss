@@ -6,6 +6,7 @@
 }
 
 .material-icons-outlined {
+  font-display: block;
   font-family: 'Material Icons Outlined';
   font-weight: normal;
   font-style: normal;
