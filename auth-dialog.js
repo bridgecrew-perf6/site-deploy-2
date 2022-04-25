@@ -1,5 +1,6 @@
 import './styles/login-dialog.less'
 import theme from "./theme";
+import {JSONRPCException} from './api.js'
 
 class AuthDialog {
     /**
@@ -15,14 +16,12 @@ class AuthDialog {
         this.password_input = document.getElementById('password_input');
         this.submit_button = document.getElementById('submit-login-button');
         this.warn_element = document.getElementById('login_dialog_warn');
-
-        this.api = api;
-
-        this.login_dialog.addEventListener("click", async () => {
+        this.submit_button.addEventListener("click", async () => {
             this.lockSubmitButton()
 
             try {
                 const result = await api.login(this.login_input.value, this.password_input.value)
+
                 localStorage.setItem("JWT_TOKEN", result.token)
                 localStorage.setItem("USER_PHONE", result.phone)
 
@@ -31,11 +30,12 @@ class AuthDialog {
                 this.unlockSubmitButton()
                 this.setWarnMessage("")
                 this.hide()
-                whenAuthFinished()
             } catch (e) {
-                this.unlockSubmitButton()
-                this.setWarnMessage("Неправильный номер телефона и/или пароль")
-                console.error(e)
+                if (e instanceof JSONRPCException && e.code === 1000) {
+                    this.unlockSubmitButton()
+                    this.setWarnMessage("Неправильный номер телефона и/или пароль")
+                    console.error(e)
+                }
             }
         });
     }

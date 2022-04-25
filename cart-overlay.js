@@ -13,7 +13,7 @@ class CartOverlay {
         this.overlay = overlay
 
         this.order_button.onclick = ev => {
-            api.order()
+            api.order(localStorage.getItem("JWT_TOKEN"), this.products, "")
         }
 
         this.cart_header_button.onclick = ev => {
