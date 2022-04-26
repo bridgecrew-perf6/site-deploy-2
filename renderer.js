@@ -50,3 +50,17 @@ export function renderCartProduct(product) {
    <div class="cart_product_price">${product.price / 100} ₽</div>
 </div>`
 }
+
+export function renderSpinner() {
+    return `
+<div class="ispinner ispinner-large">
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+  <div class="ispinner-blade"></div>
+</div>`
+}

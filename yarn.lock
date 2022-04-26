@@ -1525,6 +1525,11 @@ isobject@^3.0.1:
   resolved "https://registry.npmjs.org/isobject/-/isobject-3.0.1.tgz"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
+ispinner.css@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/ispinner.css/-/ispinner.css-3.1.1.tgz#baba8aa1ef878101787cb3719b887f19abf20fe0"
+  integrity sha512-A+Mqhe3X13aYSPj6a/P9SA6T7AeretTGvNz9f7B2H2uu6WLLSf1XmqcYI17AA1AFtDDgetH79OC5JakHEsTAQg==
+
 jest-worker@^27.0.2, jest-worker@^27.4.5:
   version "27.5.1"
   resolved "https://registry.npmjs.org/jest-worker/-/jest-worker-27.5.1.tgz"

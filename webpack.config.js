@@ -11,11 +11,13 @@ let files = glob.sync('*.html', {})
 let plugins;
 plugins = files.map(
     file => {
-        console.log(file)
+        console.log(file.substr(0, file.length - 5))
         return new HtmlWebpackPlugin({
             template: file,
             filename: file,
             scriptLoading: 'defer',
+            inject: true,
+            chunks: [file.substr(0, file.length - 5)]
         });
     }
 );
@@ -25,10 +27,9 @@ module.exports = {
     entry: {
         index: {
             import: "./index.js",
-            dependOn: ['mapbox']
         },
-        mapbox: {
-            import: './node_modules/mapbox-gl/dist/mapbox-gl-csp.js',
+        map: {
+            import: "./map.js"
         }
     },
     output: {

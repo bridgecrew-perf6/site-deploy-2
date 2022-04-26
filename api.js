@@ -25,7 +25,7 @@ class Api {
         return result;
     }
 
-    async order(token, products_view, address) {
+    translateProductsToApi(products_view) {
         const products = [];
         for (const productsKey in products_view) {
             products[productsKey] = {
@@ -33,16 +33,38 @@ class Api {
                 count: products_view[productsKey].count
             }
         }
+        return products
+    }
 
+    async orderUnregistered(phone, products_view, address) {
+        let result = await this.call({
+            register: {
+                phone: phone
+            },
+            add_order: {
+                products: this.translateProductsToApi(products_view),
+                address: address
+            }
+        })
+
+        for (let resultElement of result) {
+            if (resultElement.error !== undefined) {
+                throw new JSONRPCException(resultElement.error)
+            }
+        }
+    }
+
+    async order(token, products_view, address) {
         let result = await this.call({
             verify: {
                 token: token
             },
             add_order: {
-                products: products,
+                products: this.translateProductsToApi(products_view),
                 address: address
             }
         });
+
         for (let resultElement of result) {
             if (resultElement.error !== undefined) {
                 throw new JSONRPCException(resultElement.error)

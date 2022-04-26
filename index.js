@@ -3,7 +3,6 @@ import {render} from "./renderer";
 
 // UI
 import Chip from "./chip";
-import AddressOverlay from './address-overlay'
 import CartOverlay from './cart-overlay'
 import Header from './header'
 
@@ -29,11 +28,7 @@ const products = document.getElementById("products")
 const chips = chips_root.getElementsByClassName("chip");
 const api = new Api();
 
-
-const addressOverlay = new AddressOverlay(
-    document.getElementById("address_overlay"),
-    document.getElementById("address_text"));
-const header = new Header(api, addressOverlay)
+const header = new Header(api)
 
 //import Api from "./api";
 let cartOverlay = new CartOverlay(document.getElementById('cart_overlay'), api)

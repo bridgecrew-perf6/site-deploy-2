@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop | Ваш адрес</title>
+
+    <link rel="preload" href="fonts/MaterialIconsOutlined.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="icons.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Example page of shop">
+</head>
+<body>
+    <div class="address_overlay" id="address_overlay" hidden>
+    <div class="address_view">
+        Ваш адрес:
+        <span id="address_text"></span>
+
+        <span class="material-icons-outlined close" id="close_map_overlay">
+             &#xe5cd;
+        </span>
+    </div>
+
+    <div class="map_container">
+        <div class="material-icons-outlined center-marker" id="place">
+            &#xe55f;
+        </div>
+        <div id="map"></div>
+    </div>
+</div>
+</body>
+</html>

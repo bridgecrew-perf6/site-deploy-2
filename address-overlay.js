@@ -1,5 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
-import './styles/address_overlay.less'
+import './styles/map.less'
 
 class AddressOverlay {
     constructor(addressOverlay, addressText) {

@@ -6,8 +6,14 @@ import theme from "./theme";
 import {renderProfileInfo} from "./renderer";
 
 class Header {
-    constructor(api, addressOverlay) {
+    constructor(api) {
         this.loginText = document.getElementById('login_text')
+        this.addressText = document.getElementById('your_address')
+
+        let current_address =localStorage.getItem('selected_street')
+        if(current_address != null) {
+            this.addressText.innerHTML = current_address
+        }
 
         let userPhone = localStorage.getItem('USER_PHONE')
         if (userPhone != null) {
@@ -32,14 +38,6 @@ class Header {
 
             }
         });
-
-        document.getElementById("address").onclick = ev => {
-            addressOverlay.showMap()
-        }
-
-        document.getElementById("close_map_overlay").onclick = ev => {
-            addressOverlay.closeMap()
-        }
     }
 }
 
